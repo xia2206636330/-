@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaze.dao.VideoDao">
+
+	<!-- 查询全部视频信息 -->
+	<select id="findAllVideo" resultType="Video">
+		select * from video
+	</select>
+	
+	<!-- 搜索功能班级视频 -->
+	<select id="videoSearch" resultType="Video" parameterType="java.lang.String">
+	select * from video where videoName like concat('%',#{videoName},'%')
+	</select>
+	
+	<!-- 查询视频播放页头部信息 -->
+	<!-- <select id="findByTitle" resultType="Video">
+		select videoType,videoName,videoTime from video where videoId=#{}
+	</select> -->
+	
+	<!-- 修改观看次数 -->
+	<update id="updateVideoTime" parameterType="Video">
+		update video SET videoTime=#{videoTime} WHERE videoId=#{videoId}
+	</update>
+	
+	<!-- 修改班级视频完成度 -->
+	<update id="updateVideoSchedule">
+		update video set videoSchedule=#{videoSchedule} where uid=#{uid} and videoId=#{videoId}
+	</update>
+</mapper>

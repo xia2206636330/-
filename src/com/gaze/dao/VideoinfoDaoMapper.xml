@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaze.dao.VideoinfoDao">
+	<!-- 查询全部视频详情信息 -->
+	<select id="findAllVideoinfo" resultType="Videoinfo" parameterType="java.lang.Integer">
+		select * from videoinfo f,video v where f.videoId=v.videoId and v.videoId=#{videoId}
+	</select>
+	
+	<!-- 查询当前视频路径 -->
+	<select id="findByvideoPath" resultType="String" parameterType="java.lang.Integer">
+	select videoPath from videoinfo where vidInfoId=#{vidInfoId}
+	</select>
+	
+	<!-- 修改当前视频完成度 -->
+	<update id="updateBycompleteTime" >
+		update videoinfo set completeTime =#{completeTime} where uid=#{uid} and vidInfoId=#{vidInfold}
+	</update>
+	
+</mapper>

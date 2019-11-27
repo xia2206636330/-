@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <title>addLikeNum.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+  </head>
+  
+  <body>
+     
+   <script type="text/javascript">
+   $.ajax({
+        "url":"findAllVideo",
+        "type":"post",
+        "data":{},
+        "dataType":"json",
+        "success":function (result) {
+         console.log(result);
+        
+             // $(result).each(function () {
+            //     ht = ht + '<tr>';
+            //     ht = ht + '<td id="in"><input id="input" class="items" value="'+this.id+'" type="checkbox" ></td>';
+            //     ht = ht + '<td id="bid">' + this.id + '</td>';
+            //     ht = ht + '<td>' + this.name + '</td>';
+            //     ht = ht + '<td>' + this.first + '</td>';
+            //     ht = ht + '<td class="text-center"><button id="change" value="'+this.id+'" type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#changeModal" >修改</button></td>';
+            //     ht = ht + '</tr>';
+            //     $("#list").html(ht);
+            // });
+        },
+        "error" : function() {
+            alert("出错啦...")
+        } //表示如果请求响应出现错误，会执行的回调函数
+
+});
+   </script>
+     </body>
+</html>
